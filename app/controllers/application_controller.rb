@@ -30,9 +30,8 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/account' do
-    binding.pry
-    @user = User.find(session[:user_id])
-    erb :account
+    erb :account if helpers::logged_in?
+    redirect "/failure"
   end
 
 
