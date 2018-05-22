@@ -30,6 +30,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/account' do
+    binding.pry
     redirect "/failure" if !logged_in?
     erb :account
   end
